@@ -19,7 +19,7 @@ export default function Home() {
   // FETCH GET Para consultar todos tarefas
     useEffect(() => {
         // GET request using fetch inside useEffect React hook
-        fetch('http://localhost:3000/tasks?limit=100',{method: "GET"})
+        fetch('http://localhost:3000/api/v1/tasks?limit=100',{method: "GET"})
             .then(response => response.json())
             .then(data => {
                 console.log({data});
@@ -39,7 +39,7 @@ export default function Home() {
             <TodoForm todoHandler={addTaskToList} />
               <List sx={{ mt: 2 }}>
                 {todos.map((todo) => (
-                    <TodoItem key={todo.id} item={todo} deleteItem={removeItem}  ></TodoItem>
+                    <TodoItem updateItem={(id:string)=>{}} key={todo.id} item={todo} deleteItem={removeItem}  ></TodoItem>
                     
                     
                 ))}
