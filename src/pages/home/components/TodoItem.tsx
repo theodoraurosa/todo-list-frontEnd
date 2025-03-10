@@ -16,10 +16,10 @@ export interface Task {
 const TodoItem = (props: {item: Task , updateItem: (id: string)=>void; deleteItem: (id: string)=>void}) => { 
   const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
   const [item, setItem] = useState<Task>();
-
+  const { updateItem, deleteItem, item: itemIn } = props;
 
   useEffect(()=>{
-    setItem(props.item)
+    setItem(itemIn)
   },[])
 
   const handleCompleted = (id: string, value: boolean)=>{ 
@@ -43,18 +43,13 @@ const TodoItem = (props: {item: Task , updateItem: (id: string)=>void; deleteIte
 const handleDelete = (id: string) => {
   fetch('http://localhost:3000/api/v1/tasks/'+id, { method: 'DELETE' })
   .then(() => {});
-
-  props.deleteItem(id)
+  deleteItem(id)
 };
 
 
 
 const handleUpdate = (id: string) => {
-  fetch('http://localhost:3000/api/v1/tasks/'+id, { method: 'UPDATE' })
-  .then(() => {});
-
-  props.updateItem(id);
-
+  updateItem(id)
 };
 
   return (
@@ -67,13 +62,13 @@ const handleUpdate = (id: string) => {
       
       
       <Box>
-      <IconButton aria-label="update" onClick={() => handleUpdate(item.id)}>
+      <IconButton color="primary" disabled={item.completed}  aria-label="update" onClick={() => handleUpdate(item.id)}>
         <EditIcon></EditIcon>
         </IconButton>
       </Box>
 
       <Box>
-      <IconButton aria-label="delete" onClick={() => handleDelete(item.id)}>
+      <IconButton color="error" aria-label="delete" onClick={() => handleDelete(item.id)}>
           <DeleteIcon />
         </IconButton>
       </Box>
