@@ -6,6 +6,13 @@ import EditIcon from '@mui/icons-material/Edit';
 import { useEffect, useState } from "react";
 
 
+
+export interface Task {
+  id: string;
+  title: string; 
+  completed: boolean;
+}
+
 const TodoItem = (props: {item: Task , updateItem: (id: string)=>void; deleteItem: (id: string)=>void}) => { 
   const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
   const [item, setItem] = useState<Task>();
