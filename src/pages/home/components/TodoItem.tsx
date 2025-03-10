@@ -26,7 +26,7 @@ const TodoItem = (props: {item: Task , updateItem: (id: string)=>void; deleteIte
     if(item)
       setItem({...item, completed: !item.completed})
 
-    fetch('http://localhost:3000/tasks/'+id,
+    fetch('http://localhost:3000/api/v1/tasks/'+id,
       {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
@@ -41,7 +41,7 @@ const TodoItem = (props: {item: Task , updateItem: (id: string)=>void; deleteIte
 
 
 const handleDelete = (id: string) => {
-  fetch('http://localhost:3000/tasks/'+id, { method: 'DELETE' })
+  fetch('http://localhost:3000/api/v1/tasks/'+id, { method: 'DELETE' })
   .then(() => {});
 
   props.deleteItem(id)
@@ -50,7 +50,7 @@ const handleDelete = (id: string) => {
 
 
 const handleUpdate = (id: string) => {
-  fetch('http://localhost:3000/tasks/'+id, { method: 'UPDATE' })
+  fetch('http://localhost:3000/api/v1/tasks/'+id, { method: 'UPDATE' })
   .then(() => {});
 
   props.updateItem(id);
