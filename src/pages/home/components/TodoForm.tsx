@@ -7,7 +7,7 @@ const TodoForm =  (props: {todoHandler: (task: Task)=>void }) => {
 
 
   const saveNewTask = async (todo: string)=>{
-    let todoNew = await fetch("http://localhost:3000/tasks", {
+    let todoNew = await fetch("http://localhost:3000/api/v1/tasks", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ title: todo, listname:"default", category: "default" }), 
