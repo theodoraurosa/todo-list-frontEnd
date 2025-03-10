@@ -1,54 +1,61 @@
 # React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Todo List Frontend
 
-Currently, two official plugins are available:
+Este projeto é uma aplicação de lista de tarefas (Todo List) desenvolvida com **React**, **TypeScript**, **Material UI** e **Vite**. A aplicação permite que os usuários criem, visualizem, editem, marquem como concluídas e excluam tarefas. Ela interage com uma API RESTful para persistir as tarefas.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**Tecnologias Utilizadas:**
 
-## Expanding the ESLint configuration
+  **React**: Biblioteca para construção da interface de usuário.
+  **TypeScript**: Para tipagem estática, melhorando a segurança e a manutenção do código.
+  **Material UI**: Biblioteca de componentes para estilização e design responsivo.
+  **Vite**: Ferramenta de bundling rápido para desenvolvimento.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+ **Funcionalidades:**
+  
+   **Exibição de Tarefas**: A lista de tarefas é carregada da API quando a página é carregada.
+  **Adição de Tarefas**: O usuário pode adicionar novas tarefas através de um formulário.
+  **Edição de Tarefas**: A tarefa pode ser marcada como concluída e suas atualizações são refletidas na API.
+   **Exclusão de Tarefas**: As tarefas podem ser excluídas da lista, sendo removidas também da API.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+   Claro! Aqui está um resumo teórico para o **README**:
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
+ **Modal Personalizado com Material UI**
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Este projeto utiliza o componente **Dialog** do **Material UI** para criar um modal (janela modal) personalizável. O modal é uma interface sobreposta que exibe conteúdo, geralmente para interações com o usuário, como formulários, alertas ou confirmações.
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+### **Características do Modal:**
+- **Título Personalizável**: O modal pode exibir um título, que é passado como uma **prop**.
+- **Fechar Modal**: Inclui um botão de fechar no canto superior direito, que permite ao usuário fechar o modal. A função de fechamento é controlada via **prop**.
+- **Conteúdo Dinâmico**: O conteúdo do modal é flexível, podendo ser qualquer componente React passado como **children**.
+- **Estilização**: O modal é estilizado usando o sistema de estilização do **Material UI** para garantir uma interface limpa e consistente.
+
+### **Como Funciona:**
+- O modal é controlado por um estado **`open`** que determina se o modal está visível ou não.
+- O título e o conteúdo do modal são dinâmicos, permitindo fácil personalização.
+- A funcionalidade de fechar o modal é tratada por uma função **`handleClose`** que altera o estado **`open`**.
+
+
+**Estrutura do Projeto:**
+
+ **Home.tsx**: Página principal que exibe a lista de tarefas.
+ **TodoForm.tsx**: Componente para adicionar novas tarefas.
+ **TodoItem.tsx**: Componente que exibe cada tarefa individualmente com opções para editar, excluir e marcar como concluída.
+
+ **Como Rodar Localmente:**
+1. Instalar dependências:
+   bash
+   npm install
+  
+2. Rodar o servidor de desenvolvimento:
+   bash
+   npm run dev
+   
+
+**Benefícios e Manutenção:**
+
+**Componentização**: Facilita a adição de novas funcionalidades.
+**Escalabilidade**: O projeto pode ser facilmente expandido com novos recursos, como filtros e autenticação.
+
+Este projeto segue as melhores práticas de desenvolvimento front-end, utilizando tecnologias modernas para oferecer uma experiência de usuário fluida e uma base de código organizada.
